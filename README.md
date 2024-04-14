@@ -4,6 +4,15 @@ While looking for a intesting dataset to try some fine-tuning of models for segm
 
 If you would like to use the dataset, then you'll have to contact Martina.
 
+## Contents
+
+The python code in this repository uses the 'AROI' dataset to create a local HuggingFace dataset, fine-tunes a semantic segmentation model on this dataset and tests the model on some images.
+
+* Notebook '01_load_patient_images.ipynb' checks all the images and creates a list of 'PatientImage' objects which contain a raw image and its labeled images.
+* Notebook '02_create_huggingface_dataset.ipynb' creates splits the images in a test and a training set and creates a HuggingFace dataset. The dataset is not uploaded to the HuggingFace Hub as I don't own the copyright on the images.
+* Notebook '03_finetune_semantic_segmentation_model.ipynb' uses the dataset to fine-tune some model for semantic segmentation. The base model is nvidia/mit-b0.
+* Notebook '04_segment_images_with_model.ipynb' does some inference: it uses the model to segment some of the images.
+
 ## Citations
 
 Information about the dataset can be found in the following publications:
@@ -38,17 +47,13 @@ The base nvidia/mit-b0 model has the following citations:
 }
 ```
 
-## Contents
+## Disclaimer & license
 
-* Notebook '01_load_patient_images.ipynb' checks all the images and creates a list of 'PatientImage' objects which contain a raw image and its labeled images.
-* Notebook '02_create_huggingface_dataset.ipynb' creates splits the images in a test and a training set and creates a HuggingFace dataset. The dataset is not uploaded to the HuggingFace Hub as I don't own the copyright on the images.
-* Notebook '03_finetune_semantic_segmentation_model.ipynb' uses the dataset to fine-tune some model for semantic segmentation. The base model is nvidia/mit-b0.
-* Notebook '04_segment_images_with_model.ipynb' does some inference: it uses the model to segment some of the images.
+Let me be clear: I'm no ophthalmologist, I have no medical background. This model is just provided 'as is' without any warranties, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement. I wrote the Python code in this repository simply to learn a bit about segmentation models.
 
+I'm not the owner of the AROI dataset. Please check with Martina Melinščak and her colleagues for the exact license of the dataset.
 
-## Disclaimer
-
-Let me be clear: I'm no ophthalmologist, I have no medical background. This model is just provided 'as is' without any warranties, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement.
+The license for the base model nvidia/mit-b0 can be found at https://github.com/NVlabs/SegFormer/blob/master/LICENSE
 
 ## Links
 
